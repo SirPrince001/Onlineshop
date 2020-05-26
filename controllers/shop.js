@@ -12,9 +12,9 @@ exports.getshopProduct = ((req ,res ,next)=>{
 exports.getShopProductId = (req,res,next) => {
     const prodId = req.params.productId;
     Product.findById(prodId , product =>{
-        console.log(product)
+      res.render('../views/shop/product-details', {product:product , pageTitle:'product details'})
     })
-    res.redirect('/')
+  
  
 }
 
