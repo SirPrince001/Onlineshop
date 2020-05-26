@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="product.css">
+
+    <!-- <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+            font-family: sans-serif;
+        }
+        .main-header {
+            width: 100%;
+            height: 3.5rem;
+            background-color: #b96504;
+            padding: 0 1.5rem;
+        }
+
+        .main-header_nav{
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        main{
+            padding: 1rem;
+        }
+
+        .main-header_list-item {
+            list-style: none;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+        }
+        .main-header_list{
+            margin: 0 1rem;
+            padding: 0%;
+        }
+
+        .main-header_list a{
+            text-decoration: none;
+            color: black;
+        }
+        .main-header_list a:active,
+        .main-header_list a:hover,
+        .main-header_list a.active{
+            color: #6200ff;
+        }
+    </style> -->
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header_nav">
+            <ul class="main-header_list-item">
+                <li class="main-header_list">
+                    <a  href="/">Shop</a>
+                </li>
+                <li class="main-header_list">
+                    <a href="/add-product">Add Product</a>
+                </li>
+                <li class="main-header_list">
+                    <a href="/admin-product-list">Admin Product</a>
+                </li>
+                <li class="main-header_list">
+                    <a class="active" href="/product_list"> Products</a>
+                </li>
+                <li class="main-header_list">
+                    <a href="/cart">Cart</a>
+                </li>
+                <li class="main-header_list">
+                    <a  href="/order">Order</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+
+        <!-- display my product -->
+
+        <% if(prods.length > 0) {%>
+        <div class="grid" >
+            <% for(let product of prods) { %>
+
+              <article class="card product-item">
+                <header class="card_header">
+                    <h1 class="product_title"><%= product.title %></h1>
+                </header>
+                <div class="card_image">
+                    <img
+                        src="<%= product.imageUrl %>">
+                </div>
+
+                <div class="card_content">
+                    <h2 class="product_price">$<%= product.price %></h2>
+                    <p class="produt_description"><%= product.description %></p>
+                </div>
+
+                <div class="card_actions">
+                    <a href="/products/<%= product.id %>" class="btn">Details</a>
+                    <form action="/add-to-cart" method="POST">
+                        <button class="btn">Add To Cart</button>
+                    </form>
+                    
+                </div>
+             </article>
+            <% } %>
+
+        </div>
+        <% } else  {%>
+        <h1>No Product Found</h1>
+        <% } %>
+    </main>
+</body>
+
+</html>

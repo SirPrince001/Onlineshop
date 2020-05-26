@@ -1,0 +1,19 @@
+{
+  "name": "nodehomework",
+  "version": "1.0.0",
+  "description": "learning routing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "prince bassey",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "pug": "^2.0.4"
+  }
+}
