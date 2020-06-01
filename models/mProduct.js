@@ -57,7 +57,7 @@ fs.readFile(p, (err , fileContent)=>{
     }
 
     static findById(id ,cb) {
-        getProductFromFile(products => {
+           getProductFromFile(products => {
             const product = products.find(p => p.id === id);
             cb(product)
         })
