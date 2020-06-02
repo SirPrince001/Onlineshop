@@ -27,7 +27,6 @@ exports.getIndex = ((req ,res,next)=>{
 })
 
 exports.postCart = ((req,res,next)=>{
-  console.log('hello')
   const prodId = req.body.productId
 Product.findById(prodId , (product) =>{
 
