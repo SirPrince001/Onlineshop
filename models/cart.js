@@ -7,6 +7,7 @@ const p = path.join(__dirname , '../data/cart.json')
 
 module.exports = class Cart {
     static addCart(id , productPrice){
+        console.log('addcart')
 
 // fetch the previous cart
         fs.readFile(p , (err,fileContent) =>{
@@ -22,14 +23,15 @@ module.exports = class Cart {
             // Add new product/ increase the existing product
             if(existingProduct){
                 updatedProduct = {...existingProduct}
-                updatedProduct.qty = updateProduct.qty + 1
+                updatedProduct.qty = updatedProduct.qty + 1
                 cart.products = [...cart.products]
                 cart.products[existingProductIndex] = updatedProduct
             }else{
-                updateProduct = { id : id , qty :1}
+                updatedProduct = { id : id , qty :1}
                 cart.products = [...cart.products , updatedProduct]
             }
 
+            console.log('welcome')
             cart.totalPrice = cart.totalPrice + productPrice
             fs.writeFile(p , JSON.stringify(cart), (err)=>{
                 console.log(err)

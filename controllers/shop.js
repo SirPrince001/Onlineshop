@@ -27,9 +27,11 @@ exports.getIndex = ((req ,res,next)=>{
 })
 
 exports.postCart = ((req,res,next)=>{
+  console.log('hello')
   const prodId = req.body.productId
-Product.findById = (prodId , (product) =>{
-  Cart.addCart = (prodId , product.price)
+Product.findById(prodId , (product) =>{
+
+  Cart.addCart(prodId , product.price)
 })
   res.redirect('/cart')
 })
@@ -38,11 +40,11 @@ Product.findById = (prodId , (product) =>{
        res.render('../views/shop/cart', {pageTitle:'Your Cart'})
    })
 
-   exports.postCart = ((req,res,next)=>{
-     const prodId = req.body.productId
-     console.log(prodId)
-     res.redirect('/cart')
-   })
+  //  exports.postCart = ((req,res,next)=>{
+  //    const prodId = req.body.productId
+  //    console.log(prodId)
+  //    res.redirect('/cart')
+  //  })
 
    exports.getOrder = ((req,res,next)=>{
     res.render('../views/shop/order', {pageTitle:'Your Order'})
