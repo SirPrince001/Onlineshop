@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><%= pageTitle %></title>
-    <link rel="stylesheet" href="shop.css">
-    <link rel="stylesheet", href="product.css">
+    <link rel="stylesheet" href="shop.css" />
+    <link rel="stylesheet" , href="product.css" />
 
     <!-- <style>
         body{
@@ -86,41 +86,58 @@
             color: white;
         }
     </style> -->
-</head>
-<body>
+  </head>
+  <body>
     <header class="main-header">
-        <nav class="main-header_nav">
-            <ul class="main-header_list-item">
-                <li class="main-header_list">
-                    <a class="active" href="/products">Shop</a>
-                </li>
-                <li class="main-header_list">
-                    <a href="/add-product">Add Product</a>
-                </li>
-                <li class="main-header_list">
-                    <a href="/admin-product-list">Admin Products</a>
-                </li>
-                <li class="main-header_list">
-                    <a href="/edit-product">Products</a>
-                </li>
-                <li class="main-header_list">
-                    <a href="/cart">Cart</a>
-                </li>
-                <li class="main-header_list">
-                    <a  href="/order">Order</a>
-                </li>
-            </ul>
-        </nav>
+      <nav class="main-header_nav">
+        <ul class="main-header_list-item">
+          <li class="main-header_list">
+            <a href="/">Shop</a>
+          </li>
+          <li class="main-header_list">
+            <a class="active" href="/add-product">Add Product</a>
+          </li>
+          <li class="main-header_list">
+            <a href="/admin-product-list">Admin Products</a>
+          </li>
+          <li class="main-header_list">
+            <a href="/product_list">Products</a>
+          </li>
+          <li class="main-header_list">
+            <a href="/cart">Cart</a>
+          </li>
+          <li class="main-header_list">
+            <a href="/order">Order</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <form  class="product-form" action="/add-product" method="POST">
-            <div class="form-control">
-                <label for="Product Name">Product Name</label>
-                <input type="text" name="title" id="title">
-            </div>
-        
-        <button class="btn" type="submit">Add product</button>
-    </form>
+      <form class="product-form" action="/add-product" method="POST">
+        <div class="form-control">
+          <label for="Product Name">Product Name</label>
+          <input type="text" name="title" id="title" />
+        </div>
+
+        <div class="form-control">
+          <label for="Image Url">Image Url</label>
+          <input type="text" name="imageUrl" id="imageUrl" />
+        </div>
+
+        <div class="form-control">
+          <label for="Price">Price</label>
+          <input type="number" name="price" id="price" step="0.01" />
+        </div>
+
+        <div class="form-control">
+          <label for="Description">Description</label>
+          <textarea name="description" id="description" rows="5"></textarea>
+        </div>
+
+        <button class="btn" type="submit">
+          <%if(editing){ %>Update Product <% } else { %>Add product <% } %>
+        </button>
+      </form>
     </main>
-</body>
+  </body>
 </html>
